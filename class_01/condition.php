@@ -94,3 +94,12 @@ switch ($yourAge){
         echo "You are not Eligible for anithing";
         break;     
 }
+
+// Match statement (PHP 8.0+)
+$yourAge = 16;
+$result = match ($yourAge){
+    17 => "Your are eligible to vote",
+    18 => "You can Marry",
+    20 => "You can drive a car",
+    default => "You are not Eligible for anything"
+};
