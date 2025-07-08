@@ -95,6 +95,8 @@ switch ($yourAge){
         break;     
 }
 
+echo "\n";
+
 // Match statement (PHP 8.0+)
 $yourAge = 16;
 $result = match ($yourAge){
@@ -102,4 +104,16 @@ $result = match ($yourAge){
     18 => "You can Marry",
     20 => "You can drive a car",
     default => "You are not Eligible for anything"
+};
+echo $result . "\n";
+
+
+$studentMark = 69;
+echo $grades = match (true){
+    ($studentMark >= 80) && ($studentMark <= 100) => "Mumtaz",
+    ($studentMark >= 65) && ($studentMark < 80) => "Jayyid Jiddan",
+    ($studentMark >= 45) && ($studentMark < 65) => "Jayyid",
+    ($studentMark >= 33) && ($studentMark < 45) => "Maqbul",
+    ($studentMark >= 00) && ($studentMark < 33) => "Rasib",
+    default => "Invalid mark entered"
 };
