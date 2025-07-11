@@ -135,3 +135,21 @@ function factorialNumber($n){
     return $result; // Return the factorial result
 }
 echo "The factorial of 5 is: ", factorialNumber(5), "\n"; // Outputs: 120
+
+
+
+// Login with Recursive Function
+function userLogIn($username = null){
+    if($username === null){
+        echo "Enter your valid username: ";
+        $username = trim(fgets(stream: STDIN)); // Read input from user
+    }
+    if($username !== "Robiul Hassan"){
+        echo "Invalid username. Please try again. \n";
+        echo "Enter your valid username: ";
+        $username = trim(fgets(stream: STDIN)); // Read input from user
+        userLogIn($username); // Recursive call
+        return; // Exit the function after successful login
+    }
+    echo "welcome! $username! You have successfully logged in. \n";
+}
