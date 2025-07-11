@@ -36,3 +36,22 @@ function greetUser(): string
 }
 // Function call
 echo greetUser();
+
+//  More Example on Global and Local Scope
+$devOpsEngineer = "Robiul Hassan";
+
+function devOps(){
+    global $devOpsEngineer;
+    return "Hello, $devOpsEngineer! Welcome to DevOps training. \n";
+}
+echo devOps();
+
+$backendDeveloper = "Ibn fulan";
+// Function to greet backend developer
+function backendDeveloper(){
+    global $backendDeveloper;
+    global $devOpsEngineer; // Accessing another global variable
+    return "Hello, $backendDeveloper! Welcome to Backend Development training with $devOpsEngineer. \n";
+}
+// Function call
+echo backendDeveloper();
