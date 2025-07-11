@@ -55,3 +55,83 @@ function backendDeveloper(){
 }
 // Function call
 echo backendDeveloper();
+
+
+
+
+// Anonymous Function / Closure Function / Lambda Function / Callback Function
+$sum = function($b, $c){
+    return $b + $c;
+};
+echo $sum(b:10, c: 20), "\n"; // Outputs: 30
+
+// Helper function with anonymous function
+$greet = function($name){
+    return strtoupper("Hello, $name! Welcome to PHP programming. \n");
+};
+echo $greet(name: "Robiul Hassan"); // Outputs: HELLO, ROBIUL HASSAN! WELCOME TO PHP PROGRAMMING.
+
+
+// Arrow Functions
+$multiply = fn($a, $b) => $a * $b;
+echo $multiply(a:5, b:10), "\n"; // Outputs: 50
+
+// Arrow function with type hinting
+$divide = fn($a, $b): float => $a / $b;
+echo $divide(a:30, b:5), "\n"; // Outputs: 6
+
+// Arrow function with return type
+$subtract = fn($b, $c): int => $b - $c;
+echo $subtract(b:20, c:10), "\n"; // Outputs: 10
+
+// Arrow function with type hinting and return type
+$add = fn(int $a, float $b): float => $a + $b;
+echo $add(a:10, b:20.5), "\n"; // Outputs: 30.5
+
+
+// Function with default parameters
+function greet($name = "Guest", $greeting = "Hello"){
+    echo "$greeting, $name! Welcome to PHP programming. \n";
+}
+// Function call with default parameters
+greet(); // Outputs: Hello, Guest! Welcome to PHP programming.
+// Function call with custom parameters
+greet(name: "Robiul Hassan", greeting: "Hi"); // Outputs: Hi, Robiul Hassan! Welcome to PHP programming.
+
+
+
+// Recursive Function
+function factorial($number){
+    if($number <= 1){
+        return 1; // Base case: 1! = 1 and 0! = 1 
+    }else{
+        return $number * factorial(($number - 1)); // Recursive call
+    }
+}
+factorial(5); // Outputs: 120
+echo "The factorial of 5 is: ", factorial(5), "\n"; // Outputs
+
+
+$user = "Robiul Hassan";
+function recursive($user){
+    if($user != "Robiul Hassan"){
+        echo "Invalid user: $user \n";
+        recursive($user); // Recursive call
+    }
+    echo $user; // Base case
+}
+recursive($user);
+
+echo "\n";
+
+
+// Function to calculate factorial using a loop
+// This function calculates the factorial of a number using a loop
+function factorialNumber($n){
+    $result = 1;
+    for($i = 2; $i <= $n; $i++){
+        $result *= $i; // Multiply result by current number
+    }
+    return $result; // Return the factorial result
+}
+echo "The factorial of 5 is: ", factorialNumber(5), "\n"; // Outputs: 120
