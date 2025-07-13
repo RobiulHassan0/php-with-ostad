@@ -139,17 +139,42 @@ echo "The factorial of 5 is: ", factorialNumber(5), "\n"; // Outputs: 120
 
 
 // Login with Recursive Function
-function userLogIn($username = null){
-    if($username === null){
-        echo "Enter your valid username: ";
-        $username = trim(fgets(stream: STDIN)); // Read input from user
-    }
-    if($username !== "Robiul Hassan"){
-        echo "Invalid username. Please try again. \n";
-        echo "Enter your valid username: ";
-        $username = trim(fgets(stream: STDIN)); // Read input from user
-        userLogIn($username); // Recursive call
-        return; // Exit the function after successful login
-    }
-    echo "welcome! $username! You have successfully logged in. \n";
-}
+// function userLogIn($username = null){
+//     if($username === null){
+//         echo "Enter your valid username: ";
+//         $username = trim(fgets(stream: STDIN)); // Read input from user
+//     }
+//     if($username !== "Robiul Hassan"){
+//         echo "Invalid username. Please try again. \n";
+//         echo "Enter your valid username: ";
+//         $username = trim(fgets(stream: STDIN)); // Read input from user
+//         userLogIn($username); // Recursive call
+//         return; // Exit the function after successful login
+//     }
+//     echo "welcome! $username! You have successfully logged in. \n";
+// }
+// // Function call
+// userLogIn(); // Call the function to start the login process
+
+
+// // Login with Recursive Function and readline
+
+// function loginWithTerminal($username = null){
+//     if($username === null){
+//         $username = readline(prompt: "Enter your valid username: "); // Read input from user
+//     }
+//     if($username !== "Robiul Hassan"){
+//         echo "Invalid username. Please try again. \n";
+//         $username = readline(prompt: "Enter your valid username: "); // Read input from user
+//         return loginWithTerminal($username); // Recursive call and Exit the function after successful login
+        
+//     }
+//     echo "welcome! $username! You have successfully logged in. \n";
+// }
+// // Function call
+// loginWithTerminal(); // Call the function to start the login process
+
+$a = 10;
+$b = 20;
+$c = $a + $b; // Adding $a and $b
+sprintf("The sum of %d and %d is: %d \n", $a, $b, $c); // Outputs: The sum of 10 and 20 is: 30
