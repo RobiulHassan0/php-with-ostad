@@ -1,6 +1,7 @@
 <?php
 
-// Contact App
+// Contact Management Application
+
 $contacts = [];
 
 function addContact(array &$contacts, string $name, string $email, $phone):void
@@ -32,6 +33,7 @@ function displayContacts(array $contacts):void{
     }
 }
 
+/*
 while(true){
     echo "\nContact Management App \n";
     echo "1. Add Contact\n";
@@ -60,3 +62,8 @@ while(true){
         echo "Invalid Choice. please try again \n";
     }
 }
+*/
+
+
+
+// Quiz Application
