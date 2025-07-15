@@ -33,7 +33,7 @@ function displayContacts(array $contacts):void{
     }
 }
 
-/*
+
 while(true){
     echo "\nContact Management App \n";
     echo "1. Add Contact\n";
@@ -48,10 +48,11 @@ while(true){
         $phone = readline("Enter Your Phone Number : ");
         addContact($contacts, $name, $email, $phone);
 
-        // echo "$phone added to Contacts. \n";
-        // echo "$name added to Contacts. \n";
-        // echo "$email added to Contacts. \n";
+        // echo "$phone added to Contacts.\n";
+        // echo "$name added to Contacts.\n";
+        // echo "$email added to Contacts.\n";
         echo "Contact created successfully \n";
+
     }elseif($choice === 2){
         displayContacts($contacts);
     }elseif($choice === 3){
@@ -62,7 +63,7 @@ while(true){
         echo "Invalid Choice. please try again \n";
     }
 }
-*/
+
 
 
 
