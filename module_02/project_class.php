@@ -71,14 +71,14 @@ while(true){
 $questions = [
     ['question' => 'What is the 2+2 = ?', 'answer' => '4'],
     ['question' => "What is the capital of BD ?", 'answer' => 'Dhaka'],
-    ['question' => 'Who wrote the book "1984 ?', 'answer' => 'George Orwell']
+    ['question' => 'Who wrote the Agnibina ?', 'answer' => 'najrul']
 ];
 
 $answer = [];
 
 foreach($questions as $index => $question){
 echo ($index + 1) . ". " . $question['question']. "\n" ;
-$answer = trim(readline('type answer: '));
+$answer [] = trim(readline('type answer: '));
 }
 
 function evaluateQuiz(array $questions, array $answer):int
@@ -92,7 +92,8 @@ function evaluateQuiz(array $questions, array $answer):int
     return $score;
 }
 $myScore = evaluateQuiz($questions, $answer);
-echo "\n You Scored $myScore out of" . count($questions) . ".\n";
+echo "\n You Scored $myScore out of " . count($questions) . ".\n";
+
 
 if($myScore === count($questions)){
     echo "Great Job ! \n";
