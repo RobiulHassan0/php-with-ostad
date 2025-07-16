@@ -71,7 +71,7 @@ while(true){
 $questions = [
     ['question' => 'What is the 2+2 = ?', 'answer' => '4'],
     ['question' => "What is the capital of BD ?", 'answer' => 'Dhaka'],
-    ['question' => 'Who wrote the Agnibina ?', 'answer' => 'najrul']
+    ['question' => 'Who wrote the Agnibeena ?', 'answer' => 'najrul']
 ];
 
 $answer = [];
@@ -96,7 +96,7 @@ echo "\n You Scored $myScore out of " . count($questions) . ".\n";
 
 
 if($myScore === count($questions)){
-    echo "Great Job ! \n";
+    echo "Great Job! \n";
 }elseif($myScore >= 1){
     echo "Good Effort! \n";
 }
