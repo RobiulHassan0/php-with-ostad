@@ -93,3 +93,12 @@ function evaluateQuiz(array $questions, array $answer):int
 }
 $myScore = evaluateQuiz($questions, $answer);
 echo "\n You Scored $myScore out of" . count($questions) . ".\n";
+
+if($myScore === count($questions)){
+    echo "Great Job ! \n";
+}elseif($myScore >= 1){
+    echo "Good Effort! \n";
+}
+else{
+    echo "you are failed. try again \n";
+}
