@@ -1,7 +1,7 @@
 <?php
 
 // Contact Management Application
-
+/*
 $contacts = [];
 
 function addContact(array &$contacts, string $name, string $email, $phone):void
@@ -63,8 +63,33 @@ while(true){
         echo "Invalid Choice. please try again \n";
     }
 }
-
-
+*/
 
 
 // Quiz Application
+
+$questions = [
+    ['question' => 'What is the 2+2 = ?', 'answer' => '4'],
+    ['question' => "What is the capital of BD ?", 'answer' => 'Dhaka'],
+    ['question' => 'Who wrote the book "1984 ?', 'answer' => 'George Orwell']
+];
+
+$answer = [];
+
+foreach($questions as $index => $question){
+echo ($index + 1) . ". " . $question['question']. "\n" ;
+$answer = trim(readline('type answer: '));
+}
+
+function evaluateQuiz(array $questions, array $answer):int
+{
+    $score = 0;
+    foreach($questions as $index => $question){
+        if($answer[$index] === $question['answer']){
+            $score++;
+        }
+    }
+    return $score;
+}
+$myScore = evaluateQuiz($questions, $answer);
+echo "\n You Scored $myScore out of" . count($questions) . ".\n";
