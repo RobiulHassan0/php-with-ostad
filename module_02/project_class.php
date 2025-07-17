@@ -1,7 +1,7 @@
 <?php
 
 // Contact Management Application
-/*
+
 $contacts = [];
 
 function addContact(array &$contacts, string $name, string $email, $phone):void
@@ -63,7 +63,7 @@ while(true){
         echo "Invalid Choice. please try again \n";
     }
 }
-*/
+
 
 
 // Quiz Application
