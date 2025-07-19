@@ -135,3 +135,9 @@ foreach ($shoppingCart as $key1 => $cart){
         echo $key1 . ". " .$key2 . " => " .$value . " \n";
     }
 }
+
+echo "\n";
+echo "\n";
+
+
+
