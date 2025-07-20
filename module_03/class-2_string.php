@@ -14,3 +14,10 @@ else{
 // Search certain Keyword or Sign
 $userMail = 'user@mail.com';
 echo strpos($userMail, '@');
+
+if(strpos($userMail, '@') === false){
+    echo "Enter valid email.";
+}else{
+    echo "login Successful";
+}
+
