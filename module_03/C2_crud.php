@@ -11,12 +11,13 @@ fclose($fileRecourse);  // Always close the file after writing to save changes a
 
 // Step 2: File Reading (Either fread OR line-by-line)
 
+// Method 1: Read Entire File
 $fileRecourse = fopen($fileName, 'r');
 $content = fread($fileRecourse, filesize("example.txt"));
 echo $content;
 fclose($fileRecourse);
 
-// Or line by Line reading
+// Method 2: Line by Line Reading
 $fileRecourse = fopen($fileName, 'r');
 while(!feof($fileRecourse)){
     echo fgets($fileRecourse);
