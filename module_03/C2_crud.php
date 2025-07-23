@@ -19,6 +19,7 @@ fclose($fileRecourse);
 
 // Method 2: Line by Line Reading
 $fileRecourse = fopen($fileName, 'r');
+echo "\n--- Line by Line Reading ---\n";
 while(!feof($fileRecourse)){
     echo fgets($fileRecourse);
 }
