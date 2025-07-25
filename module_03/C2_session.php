@@ -1,6 +1,5 @@
 <?php
 
-/*
 Step 1: Start session
 session_start(); 
 
@@ -9,7 +8,7 @@ $_SESSION['username'] = 'robin';
 
 Step 3: Access anywhere
 echo $_SESSION['username']; // Output: robin
-*/
+
 
 session_start();
 $_SESSION['user'] = ['name' => 'robin', 'age' => 42, 'role' => 'dev'];
