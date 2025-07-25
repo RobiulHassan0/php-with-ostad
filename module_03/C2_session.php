@@ -15,5 +15,8 @@ session_start();
 $_SESSION['user'] = ['name' => 'robin', 'age' => 42, 'role' => 'dev'];
 
 unset($_SESSION['user']['age']);
+if(isset($_SESSION)){
+    
+}
 
 print_r($_SESSION['user']);
