@@ -23,15 +23,27 @@ if(strpos($userMail, '@') === false){  // Evaluate String Length
     echo "login Successful! \n";
 }
 
+echo "\n";
 
 // str_replace() <=> String Search And Replace
+// Structure: str_replace(search, replace, subject);
+$string = "Hello World";
+echo "original text: ". $string;
+echo "\n";
+$replaced = str_replace("World", "PHP", $string);
+echo "Now 'Hello World' is: ". $replaced;
+
+echo "\n";
+echo "\n";
+
 $text = 'this is Original text!';
 echo $text, "\n";
-// structure: str_replace(search, replace, subject)
 $replacedText = str_replace('Original', "Replaced or Updated", $text);
 echo $replacedText, "\n";
 
 echo "\n";
+
+
 
 // trim() <=> remove both side blank-Space
 $greet = " Hello World ";

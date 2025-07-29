@@ -78,3 +78,4 @@ if($hasAccess){
 }else{
     echo "Access Denied! \n";
 }
+
