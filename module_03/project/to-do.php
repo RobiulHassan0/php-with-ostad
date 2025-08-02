@@ -21,8 +21,9 @@ function saveTasks(array $tasks): void{
 }
 
 
-// Step 4: Checking to submission form by user
+// Step 4: Checking to user submission form
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
+
 // Step 5: Add task after submitted form 
     if(isset($_POST['task']) && !empty(trim($_POST['task']))){
         $tasks [] =[
