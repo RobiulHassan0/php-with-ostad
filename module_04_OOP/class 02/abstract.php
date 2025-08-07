@@ -44,3 +44,34 @@ echo "Circle Area: ". $circle->area() . "\n";
 
 $rectAngle = new Rectangle(4, 6);
 echo "Rectangle Area: ". $rectAngle->area() . "\n";
+
+
+echo "\n";
+
+
+// Another Example of abstract class in PHP OOP
+abstract class Animal{
+    protected $name;
+
+    public function setName($n){
+        $this->name = $n;
+    }
+
+    public function getName(){
+       return $this->name;
+    }
+
+    abstract public function animalVoice();
+}
+
+class Cat extends Animal{
+    public function animalVoice()
+    {
+        return $this->name . " says: meow meow \n";
+    }
+}
+
+$cat = new Cat();
+$cat->setName("Tom");
+echo "Cat Name: ". $cat->getName() . "\n";
+echo $cat->animalVoice() . "\n";
