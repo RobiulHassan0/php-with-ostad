@@ -23,3 +23,13 @@ $person = new Person();
 $person->setName("Ibn Fulan"); // Setting the name using setter method
 echo $person->getName(); // Accessing the name using getter method
 //$person->sayHello(); // This will cause an error because sayHello is protected and cannot be accessed outside the class
+echo "\n";
+
+class Student extends Person{
+    public function hello(){
+        return $this->sayHello(); // Accessing protected method from parent class
+    }
+}
+$student = new Student();
+$student->setName("Ibn Sina"); // Setting the name using setter method
+echo $student->hello();
