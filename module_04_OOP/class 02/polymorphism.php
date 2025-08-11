@@ -87,7 +87,7 @@ class FreeProduct extends Product{
 }
 
 function displayProductPrice(Product $product){
-    $product->getPrice();
+    echo $product->getPrice();
 }
 
 displayProductPrice(new Product());
