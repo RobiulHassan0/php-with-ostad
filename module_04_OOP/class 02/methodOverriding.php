@@ -37,9 +37,6 @@ $teacher->introduce();
 echo "\n";
 
 
-
-
-
 // run parent and child class's method
 class Bird{
     public function fly(){
@@ -56,3 +53,39 @@ class Eagle extends Bird{
 
 $e = new Eagle();
 $e->fly(); 
+
+
+// Method Overriding
+class Product{
+    public function getPrice(){
+        echo "The price of the product is $100.\n";
+    }
+}
+
+class DiscountProduct extends Product{
+    public function getPrice(){
+        echo "The price of the discounted product is $80.\n";
+    }
+}
+
+class PremiumProduct extends Product{
+    public function getPrice(){
+        echo "The price of the premium product is $120.\n";
+    }
+}
+
+class FreeProduct extends Product{
+    public function getPrice(){
+        echo "The price of the free product is $0.\n";
+    }
+}
+
+function displayProductPrice(Product $product){
+   echo $product->getPrice();
+}
+
+displayProductPrice(new Product());
+displayProductPrice(new DiscountProduct());
+displayProductPrice(new PremiumProduct());
+displayProductPrice(new FreeProduct());
+
