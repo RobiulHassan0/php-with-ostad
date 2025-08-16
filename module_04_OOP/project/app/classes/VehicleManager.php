@@ -8,19 +8,40 @@ require_once "FileHandler.php";
 class VehicleManager extends VehicleBase implements VehicleActions{
     use FileHandler;
 
+    // implement interface method
     public function addVehicle($data){
-
+        $vehicles = $this->fileRead();
+        $vehicles[] = $data;
+        $this->fileWrite($vehicles);
     }
 
-    public function editVehicle($data){
-
+    // implement interface method
+    public function editVehicle($id, $data){
+        $vehicles = $this->fileRead();
+        if(isset($vehicles[$id])){
+            $vehicles[$id] = $data;
+            $this->fileWrite($vehicles);
+        }
     }
 
-    public function deleteVehicle($data){
-        
+    // implement interface method
+    public function deleteVehicle($id){
+        $vehicles = $this->fileRead();
+        if(isset($vehicles[$id])){
+            unset($vehicles[$id]);
+            $this->fileWrite(array_values($vehicles));
+        }
     }
 
-    public function getVehicles($data){
+    // implement interface method
+    public function getVehicles(){
+        return $this->fileRead();
+    }
+
+
+    // implemented Abstract method
+    public function getDetails()
+    {
         
     }
 }

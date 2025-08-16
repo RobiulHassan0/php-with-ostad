@@ -2,8 +2,8 @@
 
 
 interface VehicleActions{
-    function addVehicle();
-    function editVehicle();
-    function deleteVehicle();
-    function getVehicles();
+    public function addVehicle($data);
+    public function editVehicle($id, $data);
+    public function deleteVehicle($id);
+    public function getVehicles();
 }

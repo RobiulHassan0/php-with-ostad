@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Bugatti Centodieci",
+        "type": "car",
+        "price": "45467",
+        "image": "https:\/\/www.autoshippers.co.uk\/blog\/wp-content\/uploads\/bugatti-centodieci.jpg"
+    },
+    {
+        "name": "TATA Truck",
+        "type": "Truck",
+        "price": "789000",
+        "image": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcRoMdrPdoQPBma0MnpofL5D-PZVlJP7tDKukg&s"
+    },
+    {
+        "name": "Rolls Royce Sweptails",
+        "type": "car",
+        "price": "85200",
+        "image": "https:\/\/www.autoshippers.co.uk\/blog\/wp-content\/uploads\/rolls-royce-sweptail.jpg"
+    }
+]

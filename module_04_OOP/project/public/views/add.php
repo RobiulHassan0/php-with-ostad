@@ -1,5 +1,5 @@
 <?php
-require_once "./app/classes/VehicleManager.php";
+    require_once "../../app/classes/VehicleManager.php";
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $vehicleManager = new VehicleManager("", "", "", "");
