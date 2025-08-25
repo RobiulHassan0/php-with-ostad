@@ -18,5 +18,7 @@ WHERE salary = (
 );
 
 
+-- Q1(C): Find average pending balance from active accounts,
+-- grouped by branch, where avg pending balance < 4300
 
 
