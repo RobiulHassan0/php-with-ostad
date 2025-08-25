@@ -20,5 +20,9 @@ WHERE salary = (
 
 -- Q1(C): Find average pending balance from active accounts,
 -- grouped by branch, where avg pending balance < 4300
-
+SELECT OPEN_BRANCH_ID, AVG(PENDING_BALANCE) AS AVG_Pending_Balance
+FROM account
+WHERE STATUS = 'ACTIVE'
+GROUP BY OPEN_BRANCH_ID
+HAVING AVG(PENDING_BALANCE) < 4300;
 
