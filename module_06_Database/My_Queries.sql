@@ -46,3 +46,7 @@ SELECT * FROM employee
 LIMIT 6
 OFFSET 12;
 
+
+
+-- Q1(E): Count total number of branches including head branch
+SELECT COUNT(*) AS Total_Branches FROM branch;
