@@ -7,6 +7,7 @@ $database = 'corephp';
 
 try{
     $connection = new mysqli($localhost, $username, $password, $database);
+
 }catch(Exception $e){
     echo $e->getMessage();
 }
