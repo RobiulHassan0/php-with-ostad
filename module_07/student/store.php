@@ -9,29 +9,56 @@ $database = 'corephp';
 
 
 $connection = new mysqli($localhost, $username, $password, $database);
+$email = 'karim@mail.com';
 
-$email = 'rahim@mail.com';
-$checkEmail = "SELECT COUNT(*) FROM students WHERE email = 'rahim@mail.com' ";
+$getAllData = "SELECT * FROM students";
+$result = $connection->query($getAllData);
+
+if($result->num_rows > 0){
+    // while($row = $result->fetch_assoc()){
+    //     echo "ID : " . $row['id'] . "<br>"; 
+    //     echo "Name : " . $row['name'] . "<br>"; 
+    //     echo "Email : " . $row['email'] . "<br>"; 
+    //     echo "<hr>";
+    // }    
+
+    echo "<pre>";
+    print_r($result->fetch_all(MYSQLI_ASSOC));
+    echo "</pre>";
+
+}else{
+    echo 'No Data available!';
+}
+
+
+// echo "<pre>";
+// echo "ID : " . $row['id'] . "<br>"; 
+// echo "Name : " . $row['name'] . "<br>"; 
+// echo "Email : " . $row['email'] . "<br>"; 
+// echo "</pre>";
+
+
+return;
+$checkEmail = "SELECT COUNT(*) FROM students WHERE email = '{$email}' ";
         
-        $result = $connection->query($checkEmail);
-        $row = $result->fetch_assoc();
-        var_dump($row);
-        if($row['COUNT(*)'] > 0){
-            echo "Email is already exist.";
-            return false;
-        }
+$result = $connection->query($checkEmail);
+$row = $result->fetch_assoc();
+if($row['COUNT(*)'] > 0){
+    echo "Email is already exist.";
+    return false;
+}
 
-        $insertQuery = "INSERT INTO students (NAME, EMAIL, DOB, AGE, STATUS) VALUES
-        ('Rahim', 'rahim@mail.com', '2001-01-01', 24, 'Active')";
+$insertQuery = "INSERT INTO students (NAME, EMAIL, DOB, AGE, STATUS) VALUES
+('Rahim', 'karim@mail.com', '2001-01-01', 24, true)";
 
-        $result = $connection->query($insertQuery);
-        if($result){
-            echo "Student Data inserted";
-            return true;
-        }else{
-           echo "error";
-           return true;
-        }
+$result = $connection->query($insertQuery);
+if($result){
+    echo "Student Data inserted";
+    return true;
+}else{
+    echo "error";
+    return true;
+}
 
         
 
