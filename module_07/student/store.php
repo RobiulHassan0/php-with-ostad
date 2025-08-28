@@ -9,26 +9,34 @@ $database = 'corephp';
 
 
 $connection = new mysqli($localhost, $username, $password, $database);
-$email = 'karim@mail.com';
 
-$getAllData = "SELECT * FROM students";
-$result = $connection->query($getAllData);
 
-if($result->num_rows > 0){
-    // while($row = $result->fetch_assoc()){
-    //     echo "ID : " . $row['id'] . "<br>"; 
-    //     echo "Name : " . $row['name'] . "<br>"; 
-    //     echo "Email : " . $row['email'] . "<br>"; 
-    //     echo "<hr>";
-    // }    
+// $getAllData = "SELECT * FROM students";
+$updateData = "UPDATE students SET name = 'Karim' WHERE id=7 " ;
+$deleteData = "DELETE FROM students WHERE id=7 " ;
+$result = $connection->query($deleteData);
+ 
+    if($connection->affected_rows > 0){
+        echo "Data Deleted";
+    }else{
+        echo "error";
+    }
 
-    echo "<pre>";
-    print_r($result->fetch_all(MYSQLI_ASSOC));
-    echo "</pre>";
+// if($result->num_rows > 0){
+//     // while($row = $result->fetch_assoc()){
+//     //     echo "ID : " . $row['id'] . "<br>"; 
+//     //     echo "Name : " . $row['name'] . "<br>"; 
+//     //     echo "Email : " . $row['email'] . "<br>"; 
+//     //     echo "<hr>";
+//     // }    
 
-}else{
-    echo 'No Data available!';
-}
+//     echo "<pre>";
+//     print_r($result->fetch_all(MYSQLI_ASSOC));
+//     echo "</pre>";
+
+// }else{
+//     echo 'No Data available!';
+// }
 
 
 // echo "<pre>";
