@@ -11,7 +11,7 @@ $database = 'corephp';
 $connection = new mysqli($localhost, $username, $password, $database);
 
 
-// $getAllData = "SELECT * FROM students";
+$getAllData = "SELECT * FROM students";
 $updateData = "UPDATE students SET name = 'Karim' WHERE id=7 " ;
 $deleteData = "DELETE FROM students WHERE id=7 " ;
 $result = $connection->query($deleteData);
