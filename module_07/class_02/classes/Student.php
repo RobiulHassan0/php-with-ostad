@@ -14,14 +14,33 @@ class Student{
     }
 
     public function insertStudents($data){
-        $sql = "INSERT INTO students (name, email, dob, age, status) VALUE 
-        ('Karim', 'karim@mail.com', '2001-01-01', 24, true)"; 
+        $sql = "INSERT INTO students (name, email, dob, age) VALUE 
+        ('$data[name]', '$data[email]', $data[dob], $data[age])"; 
         $insert = $this->database->connection->query($sql);
         if($insert){
-            echo "Inserted Data";
+            return $this->responseModel('Student inserted succsessfully');
         }else{
-            echo "Not Imported Data";
+            return $this->responseModel('Students Not inserted');
         }
         echo "<br>";
+    }
+
+    public function isEmailExist($email){
+        $sql = "SELECT COUNT(*) FROM students WHERE email = '$email' ";
+        $result = $this->database->connection->query($sql);
+        $fetch = $result->fetch_assoc();
+        if($fetch['COUNT(*)'] > 0){
+            return true;
+        }
+        return false;
+    }
+
+    private function responseModel($message, $data=[], $status = 200){
+        http_response_code($status);
+        return json_encode([
+            'message' => $message,
+            'data' => $data,
+            'status' => $status
+        ], JSON_PRETTY_PRINT);
     }
 }
