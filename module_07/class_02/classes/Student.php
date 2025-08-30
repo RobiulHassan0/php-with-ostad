@@ -49,8 +49,19 @@ class Student{
         return false;
     }
 
+    public function deleteStudent($id){
+        $sql = "DELETE FROM students WHERE id= ? ";
+        $statements = $this->database->connection->prepare($sql);
+        $statements->bind_param('i', $id);
+        if($statements->execute()){
+            return $this->responseModel('Student Deleted Successfully');
+        }else{
+            return $this->responseModel('Student Not Deleted');
+        }
+    }
+
     public function isIdExist($id){
-        $sql = "SELECT COUNT(*) FROM students WHERE email = '$id' ";
+        $sql = "SELECT COUNT(*) FROM students WHERE id = '$id' ";
         $result = $this->database->connection->query($sql);
         $fetch = $result->fetch_assoc();
         if($fetch['COUNT(*)'] > 0){

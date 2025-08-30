@@ -28,6 +28,11 @@ if($student->isEmailExist($_POST['email'])){
     exit;
 }
 
+if($student->isIdExist($_POST['id'])){
+    echo json_encode(['message' => 'Email already exist']);
+    exit;
+}
+
 $data = [
     'name' => $_POST['name'],
     'email' => $_POST['email'],
