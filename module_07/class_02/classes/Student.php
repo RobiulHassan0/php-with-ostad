@@ -1,6 +1,7 @@
 <?php
 
 class Student{
+    private $table = 'students';
     public function __construct(private Database $database)
     {
         
@@ -13,7 +14,7 @@ class Student{
         return json_encode($row, JSON_PRETTY_PRINT);
     }
 
-    public function insertStudents($data){
+    public function insertStudents(array $data){
         $sql = "INSERT INTO students (name, email, dob, age) VALUE 
         ('$data[name]', '$data[email]', $data[dob], $data[age])"; 
         $insert = $this->database->connection->query($sql);
@@ -25,8 +26,31 @@ class Student{
         echo "<br>";
     }
 
+
+    public function insertStudentsSequre(array $data){
+        $sql = "INSERT INTO ". $this->table ." (name, email, dob, age) VALUE (?, ?, ?, ?)"; 
+        $statements = $this->database->connection->prepare($sql);
+        $statements->bind_param('sssi', $data['name'], $data['email'], $data['dob'], $data['age']);
+
+        if($statements->execute()){
+            return $this->responseModel('Student inserted Successfully');
+        }
+        return $this->responseModel('Student inserted Successfully');
+
+    }
+
     public function isEmailExist($email){
         $sql = "SELECT COUNT(*) FROM students WHERE email = '$email' ";
+        $result = $this->database->connection->query($sql);
+        $fetch = $result->fetch_assoc();
+        if($fetch['COUNT(*)'] > 0){
+            return true;
+        }
+        return false;
+    }
+
+    public function isIdExist($id){
+        $sql = "SELECT COUNT(*) FROM students WHERE email = '$id' ";
         $result = $this->database->connection->query($sql);
         $fetch = $result->fetch_assoc();
         if($fetch['COUNT(*)'] > 0){

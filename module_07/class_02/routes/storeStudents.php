@@ -35,4 +35,5 @@ $data = [
     'age' => $_POST['age']
 ];
 
-echo $student->insertStudents($data);
+// echo $student->insertStudents($data);
+echo $student->insertStudentsSequre($data);
