@@ -31,3 +31,19 @@ switch (grade){
     default:
         console.log('Invalid Grade');
 }
+
+// console.log("\n");
+
+let i = 1;
+while (i <= 5){
+    console.log(i);
+    i++;
+}
+
+
+console.log("\n");
+
+let x = Math.random();
+let y = x * 10;
+let z = Math.floor(y);
+console.log(z)

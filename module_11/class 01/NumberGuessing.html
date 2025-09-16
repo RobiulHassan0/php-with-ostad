@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>🔢 Guess The Number</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .game-box {
+      background: #fff;
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      width: 90%;
+      max-width: 420px;
+      text-align: center;
+      animation: popIn 0.6s ease;
+    }
+
+    @keyframes popIn {
+      0% {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .game-box h1 {
+      font-size: 28px;
+      color: #4a00e0;
+      margin-bottom: 10px;
+    }
+
+    .game-box p {
+      color: #666;
+      margin-bottom: 20px;
+      font-size: 15px;
+    }
+
+    input[type="number"] {
+      padding: 12px;
+      width: 100%;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      font-size: 16px;
+      margin-bottom: 20px;
+      transition: 0.3s;
+    }
+
+    input[type="number"]:focus {
+      border-color: #7f5af0;
+      outline: none;
+    }
+
+    .button-box {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      margin-top: 10px;
+    }
+
+    .button-box button {
+      flex: 1;
+      background: #5d2fe6;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .button-box button:hover {
+      background: #4c23d3;
+    }
+
+    #resetButton {
+      display: none;
+      background-color: #28a745;
+    }
+
+    .result {
+      margin-top: 25px;
+      font-size: 14px;
+      color: #999;
+    }
+
+    @media (max-width: 480px) {
+      .game-box {
+        padding: 30px 20px;
+      }
+
+      .game-box h1 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="game-box">
+    <h1>🔢 সংখ্যা অনুমান করো</h1>
+    <p>১ থেকে ১০ এর মধ্যে একটি সংখ্যা অনুমান করো</p>
+
+    <input type="number" id="guessInput" placeholder="তোমার অনুমান লিখো..." min="1" max="10" />
+
+    <div class="button-box">
+      <button onclick="checkGuess()" type="submit">জমা দাও</button>
+      <button onclick="resetGame()" id="resetButton">🔄 আবার শুরু করো</button>
+    </div>
+    <p class="result" id="resultText"></p>
+  </div>
+
+  <script>
+    let secretNumber = Math.floor(Math.random() * 10) + 1;
+    let attempts = 0;
+
+    function checkGuess(){
+      const userGuess = parseInt(document.getElementById("guessInput").value);
+      const result = document.getElementById('resultText');
+      const resetBtn = document.getElementById('resetButton')
+      attempts++;
+
+      if(isNaN(userGuess) || userGuess < 1 || userGuess > 10){
+        result.innerText = "⚠️ ১ থেকে ১০ এর মধ্যে একটি সংখ্যা দাও।";
+        result.style.color = 'red';
+        return;
+      }
+
+      if(userGuess < secretNumber){
+        result.innerText = "🔼 আরো বড় সংখ্যা দাও!";
+        result.style.color = 'orange';
+      }else if (userGuess > secretNumber){
+        result.innerText = "🔼 আরও ছোট সংখ্যা দাও!";
+        result.style.color = 'orange';
+      }else{
+        result.innerText = `🎉 ওয়াও! ঠিক ধরেছো! সংখ্যাটি ছিল ${secretNumber}\n ✅ চেষ্টা করেছো ${attempts} বার।`;
+        result.style.color = 'green';
+        document.getElementById('guessInput').disabled = true;
+        resetBtn.style.display = 'inline-block';
+      }
+    }
+
+    function resetGame(){
+      secretNumber = Math.floor(Math.random() * 10) + 1;
+      attempts = 0;
+
+      document.getElementById('guessInput').value = '';
+      document.getElementById('guessInput').disabled = false;
+      document.getElementById('resultText').innerText = '';
+      document.getElementById('resetButton').style.display = "none";
+    }
+  </script>
+</body>
+</html>

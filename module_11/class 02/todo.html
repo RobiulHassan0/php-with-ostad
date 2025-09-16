@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>To-Do List (Arrow Function)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eef2f3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+      width: 350px;
+    }
+    .container p{
+        font-size: 14px;
+        text-align: center;
+        margin-top: -10px;
+    }
+    h2 {
+      text-align: center;
+      color: #444;
+    }
+    #taskInput {
+      width: 75%;
+      padding: 10px;
+      border: 1px solid #bbb;
+      border-radius: 6px;
+    }
+    #taskInput2 {
+      width: 75%;
+      padding: 10px;
+      border: 1px solid #bbb;
+      border-radius: 6px;
+    }
+    #addBtn {
+      padding: 10px 15px;
+      background: #2196F3;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    #addBtn2{
+    padding: 10px 15px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    #addBtn:hover {
+      background: #1976D2;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 15px;
+    }
+    li {
+      background: #e3f2fd;
+      margin: 5px 0;
+      padding: 10px;
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .deleteBtn {
+      background: crimson;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 5px 8px;
+      cursor: pointer;
+    }
+    .flex-section {
+        display: flex;
+        gap: 50px;
+    }
+  </style>
+</head>
+<body>
+    <div class="flex-section ">
+        <div class="container">
+            <h2>My To-Do List</h2>
+            <p>(with Arrow Function )</p>
+            <input type="text" id="taskInput" placeholder="Enter a task">
+            <button id="addBtn">Add</button>
+            <ul id="todo-list"></ul>
+        </div>
+
+        <!-- Anonymous  -->
+        <div class="container">
+            <h2>My To-Do List</h2>
+            <p>Anonymous Function</p>
+            <input type="text" id="taskInput2" placeholder="Enter a task">
+            <button class="btn-two" id="addBtn2">Add</button>
+            <ul id="todo-list2"></ul>
+        </div>
+    </div>
+
+  <script>
+    // Arrow Function -------------------
+
+    const addBtn = document.getElementById('addBtn');
+    const taskInput = document.getElementById("taskInput");
+    const todoList = document.getElementById("todo-list");
+
+    addBtn.addEventListener("click", () => {
+        const task = taskInput.value.trim();
+        if(task !== ""){
+            const li = document.createElement("li");
+            li.textContent = task;
+
+            const deleteBtn = document.createElement('button');
+            deleteBtn.textContent = "X";
+            deleteBtn.className = "deleteBtn"; 
+
+            // Arrow Function in Delete Button
+            deleteBtn.addEventListener("click", () => li.remove());
+            li.appendChild(deleteBtn);
+            todoList.appendChild(li)
+            taskInput.value = "";
+        }
+    });
+
+    // Anonymous Function -------------------
+    const addBtnAnon = document.getElementById('addBtn2');
+    const taskInputAnon = document.getElementById("taskInput2");
+    const todoListAnon = document.getElementById("todo-list2");
+
+    addBtnAnon.addEventListener("click", function() {
+        const task = taskInputAnon.value.trim();
+        if(task !== ""){
+            const li = document.createElement("li");
+            li.textContent = task;
+
+            const deleteBtn = document.createElement('button');
+            deleteBtn.textContent = "X";
+            deleteBtn.className = "deleteBtn"; 
+
+            // Arrow Function in Delete Button
+            deleteBtn.addEventListener("click", function(){
+                li.remove();
+            });    
+            li.appendChild(deleteBtn);
+            todoListAnon.appendChild(li)
+            taskInputAnon.value = "";
+        }
+    });
+  </script>
+</body>
+</html>
