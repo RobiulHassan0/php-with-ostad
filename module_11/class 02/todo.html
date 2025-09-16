@@ -81,23 +81,24 @@
       padding: 5px 8px;
       cursor: pointer;
     }
-    .flex-section {
+    .flex-container {
         display: flex;
         gap: 50px;
     }
   </style>
 </head>
 <body>
-    <div class="flex-section ">
+    <div class="flex-container ">
+        <!-- For Anonymous Function -->
         <div class="container">
-            <h2>My To-Do List</h2>
+            <h2>My To-Do List</h2>gi
             <p>(with Arrow Function )</p>
             <input type="text" id="taskInput" placeholder="Enter a task">
             <button id="addBtn">Add</button>
             <ul id="todo-list"></ul>
         </div>
 
-        <!-- Anonymous  -->
+        <!-- For Arrow Function -->
         <div class="container">
             <h2>My To-Do List</h2>
             <p>Anonymous Function</p>
@@ -109,7 +110,7 @@
 
   <script>
     // Arrow Function -------------------
-
+    
     const addBtn = document.getElementById('addBtn');
     const taskInput = document.getElementById("taskInput");
     const todoList = document.getElementById("todo-list");
