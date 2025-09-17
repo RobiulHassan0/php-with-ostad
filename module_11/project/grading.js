@@ -11,7 +11,7 @@ function addStudent(name, marks){
     }else if(marks >= 40){
         grade = 'B';
     }else{
-        grade = 'Failed';
+        grade = 'Faile';
     }
 
     let student = {
