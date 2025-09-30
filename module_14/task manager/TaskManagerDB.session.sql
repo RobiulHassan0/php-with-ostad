@@ -1,4 +1,9 @@
-CREATE DATABASE IF NOT EXISTS task_manager
-    DEFAULT CHARACTER SET utf8mb4
-    DEFAULT COLLATE  utf8mb4_unicode_ci;
-USE task_manager;
+CREATE TABLE tasks(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    title VARCHAR(100) NOT NULL,
+    description TEXT,
+    status TINYINT NOT NULL DEFAULT 0,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+)
