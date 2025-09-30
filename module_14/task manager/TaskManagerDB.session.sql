@@ -1,3 +1,2 @@
-UPDATE tasks
-SET status = 1
-WHERE id = 1;
+DELETE FROM tasks
+WHERE id = 8;
